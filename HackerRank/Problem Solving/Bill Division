@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the bonAppetit function below.
+def bonAppetit(bill, k, b):
+    # Anna doesn't eat the item with price bill[k], so that doesn't count in her bill
+    noanna = bill[k]
+    # Making a duplicate of 'bill' list
+    annaandbrian = bill
+    # Bill that has prices of items that both Anna & Brian had together
+    annaandbrian.remove(noanna)
+    # Calculating Anna's original bill
+    annapays = int(sum(annaandbrian)/2)
+    # If charged & original are same we are good , else we print the amount Brian owes Anna
+    if annapays == b :
+        print('Bon Appetit')
+    else :
+        print(abs(annapays - b))
+    
+
+if __name__ == '__main__':
+    nk = input().rstrip().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    bill = list(map(int, input().rstrip().split()))
+
+    b = int(input().strip())
+
+    bonAppetit(bill, k, b)
