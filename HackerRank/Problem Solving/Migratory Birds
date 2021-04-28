@@ -1,0 +1,39 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+# Complete the migratoryBirds function below.
+def migratoryBirds(arr):
+    # Array to store the keys with maximum count
+    maxarray = []
+    # Using Counter() to get the frequency of each entry in the array
+    dic = dict(Counter(arr))
+    # Finding the maximum value in the dictionary
+    maxvalue = max(dic.values())
+    # Iterate through the whole dictionary to get keys for the maximum value & append the keys into a new array
+    for key,value in dic.items() :
+        if value == maxvalue :
+            maxarray.append(key)
+    # If there are no repetitions in the maximum value , we just return that 1 element else return the minimum of the array
+    if len(maxarray) == 1 :
+        return maxarray[0]
+    else :
+        return min(maxarray)
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
