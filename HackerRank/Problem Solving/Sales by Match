@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    # Output to store the number of pairs of matched colours
+    output = []
+    # Finding frequency count of each colour
+    dic = dict(Counter(ar))
+    # Storing values where only 1 pair is there
+    for value in dic.values() :
+        if value >= 2 :
+            output.append(value)
+    # Finding number of pairs
+    for i in range(len(output)) :
+        output[i] = int(output[i]/2)
+    # Returning the total number of pairs
+    return sum(output)
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
