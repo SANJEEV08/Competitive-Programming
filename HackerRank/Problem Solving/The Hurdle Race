@@ -1,0 +1,38 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the hurdleRace function below.
+def hurdleRace(k, height):
+    # Output to store hurdles which need doses to cross
+    output = []
+    # Storing all hurdles which need doses to cross
+    for i in range(len(height)) :
+        if height[i] > k :
+            output.append(height[i])
+    # Returning number of doses required or 0
+    if len(output) != 0 :
+        return max(output) - k
+    else :
+        return 0
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    height = list(map(int, input().rstrip().split()))
+
+    result = hurdleRace(k, height)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
