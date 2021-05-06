@@ -1,0 +1,46 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'findDigits' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER n as parameter.
+#
+
+def findDigits(n):
+    # List to store results when a number is split into its digits
+    broken = []
+    # Variable to store the number of divisors present
+    count = 0
+    # Logic to split a number into its digits
+    broken = [int(d) for d in str(n)]
+    # Avoiding errors of 'Dividing by zero'
+    # Checking for number of divisors present
+    for i in range(len(broken)) :
+        if broken[i] == 0 :
+            broken[i] = 0
+        else :
+            if n % broken[i] == 0 :
+                count = count + 1
+    
+    return count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        result = findDigits(n)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
