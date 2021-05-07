@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'jumpingOnClouds' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY c as parameter.
+#
+
+def jumpingOnClouds(c):
+    # Variable to store the minimum number of jumps required
+    count = 0
+    # Variable to iterate over the list indices
+    pointer = 0
+    # Logic to iterate from first to last index & calculating 'count' accordingly
+    while pointer < len(c) - 1 :
+        
+        if ((len(c) - 1) - pointer) == 1 :
+            count = count + 1
+            break
+        elif c[pointer] == c[pointer + 2] :
+            count = count + 1
+            pointer = pointer + 2
+        else :
+            count = count + 1 
+            pointer = pointer + 1
+        
+    return count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
