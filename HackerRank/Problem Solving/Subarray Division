@@ -1,0 +1,40 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the birthday function below.
+def birthday(s, d, m):
+    # Variable to store the number of ways the bar can be divided
+    count = 0
+    # Iterating only till a certain index number
+    iterate  = len(s) - m + 1
+    # Logic to check 'm' elements at a time
+    for i in range(iterate) :
+        if sum(s[i:i + m]) == d :
+            count = count + 1
+    
+    return count
+   
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    s = list(map(int, input().rstrip().split()))
+
+    dm = input().rstrip().split()
+
+    d = int(dm[0])
+
+    m = int(dm[1])
+
+    result = birthday(s, d, m)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
