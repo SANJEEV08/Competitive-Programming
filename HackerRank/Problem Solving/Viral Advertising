@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'viralAdvertising' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER n as parameter.
+#
+
+def viralAdvertising(n):
+    # Variable to check for number of days completed calculation
+    day = 1
+    # Variable to store the number of people who have seen the AD
+    shared = 5
+    # Variable to store the number of people who have liked the AD
+    liked = 2
+    # Variable to store the total number of likes at the end of each day
+    total = 2
+    # Logic to calculate all variables at the end of each day
+    while day < n :
+        shared = liked * 3
+        liked = math.floor(shared / 2)
+        total = total + liked
+        day = day + 1
+        
+    return total
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    result = viralAdvertising(n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
