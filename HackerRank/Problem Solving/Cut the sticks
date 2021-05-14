@@ -1,0 +1,60 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'cutTheSticks' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def cutTheSticks(arr):
+    # Empty list to store the number of sticks left in each iteration
+    result = []
+    # Initial variable to calculate length of input array
+    length = len(arr)
+    # Appending the length of initial array
+    result.append(length)
+    # Logic to subract & remove elements
+    while length > 1 :
+        # Variable to calculate the shortest stick at each iteration
+        shortest =  min(arr)
+        # Logic to subtract 'shortest' from each of the array elements
+        for i in range(len(arr)) :
+            arr[i] = arr[i] -  shortest
+        # Logic to remove all occurences of '0' in the array  
+        try :
+            while True :
+                arr.remove(0)
+        except ValueError :
+            pass
+        # Variable to calculate the length of array after modification
+        length = len(arr)
+        # Appending the above variable to our 'result[]'
+        result.append(length)
+    # Removing '0s' if there were any discrepancies during calculations   
+    if result.count(0) > 0 :
+        result.remove(0)
+        
+    return result
+                        
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = cutTheSticks(arr)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
