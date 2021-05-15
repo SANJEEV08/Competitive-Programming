@@ -1,0 +1,63 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'acmTeam' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts STRING_ARRAY topic as parameter.
+#
+
+
+def acmTeam(topic):
+    # Empty list to store the final values
+    result = []
+    # Empty list to store all the combinations of topic known count
+    comb = []
+    # Logic to iterate & find out the topic known count of each pair
+    for i in range(0,len(topic) - 1) :
+        for j in range(i + 1,len(topic)) :
+            count = 0
+            a = topic[i]
+            b = topic[j]
+            for k in range(len(a)) :
+                if a[k] == '1' or b[k] == '1' :
+                    count = count + 1
+                
+            comb.append(count)
+    
+    # Logic to 'append' into the 'result' list
+    maxtopics = max(comb)
+    nteams = comb.count(maxtopics)
+    result.append(maxtopics)
+    result.append(nteams)
+    
+    return result
+                    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    m = int(first_multiple_input[1])
+
+    topic = []
+
+    for _ in range(n):
+        topic_item = input()
+        topic.append(topic_item)
+
+    result = acmTeam(topic)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
