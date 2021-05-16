@@ -1,0 +1,52 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the jumpingOnClouds function below.
+def jumpingOnClouds(c, k):
+    # Variable to store the starting index
+    i = 0
+    # Value to deduct when it reaches a cumulus cloud
+    cdeduct = 1
+    # Value to deduct when it reaches a thunderhead cloud
+    tdeduct = 2
+    # Initial value of energy
+    energy = 100
+    # Logic to iterate through the list
+    # The while loop exits when (i + k) % n == 0 
+    while (i + k) % n != 0 :
+        if c[(i + k) % n] == 1 :
+            energy = energy - cdeduct - tdeduct
+        else :
+            energy = energy - cdeduct
+        
+        i = (i + k) % n 
+    # After exiting the above while loop we still have to check for the 1st element    
+    if c[0] == 1 :
+        energy = energy - cdeduct - tdeduct
+    else :
+        energy = energy - cdeduct
+        
+    return energy
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
