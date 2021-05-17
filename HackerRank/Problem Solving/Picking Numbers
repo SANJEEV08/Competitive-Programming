@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'pickingNumbers' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY a as parameter.
+#
+
+def pickingNumbers(a):
+    # Variable to store the maximum value
+    maximum = 0
+    # Logic to find the length of longest sub array satisfying the condition
+    for i in a :
+        # Counting the number of times the element in iteration is present
+        # If the same element is present more than once it will be added to 'ecount' since i - i = 0 satisfies the condition
+        ecount = a.count(i)
+        # Counting the number of times the element - 1 is present
+        # This if for when the absolute difference = 1
+        pcount = a.count(i - 1)
+        # Adding both will give us the required count
+        ecount = ecount + pcount
+        # Logic for finding the largest of the lot
+        if ecount > maximum :
+            maximum = ecount
+            
+    return maximum
+
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = pickingNumbers(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
