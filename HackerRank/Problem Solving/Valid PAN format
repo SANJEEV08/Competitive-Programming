@@ -1,0 +1,30 @@
+# Solution Function
+def validpan(pan) :
+    # Variables to keep track of whether all 3 conditions of 'PAN FORMAT' are satisfied
+    length = 0
+    digit = 0
+    last = 0
+    # Logic to find whether the first 5 characters are alphabets & in uppercase
+    for i in range(0,5) :
+        if pan[i].isalpha() and pan[i].isupper() :
+            length = length + 1
+    # Logic to find whether the next 4 characters are digits        
+    for i in range(5,9) :
+        if pan[i].isdigit() :
+            digit = digit + 1
+    # Logic to find whether the last character is an alphabet & in uppercase        
+    if pan[-1].isalpha() and pan[-1].isupper() :
+        last = last + 1
+    # Overall condition to check for 'PAN FORMAT'    
+    if length == 5 and digit == 4 and last == 1 :
+        print('YES')
+    else :
+        print('NO')
+
+
+# Getting the input through 'STDIN' for all test cases & then calling the solution function for each test case
+if __name__ == '__main__' :
+    n = int(input()) 
+    for i in range(n) :
+        pan  = str(input())
+        validpan(pan)
