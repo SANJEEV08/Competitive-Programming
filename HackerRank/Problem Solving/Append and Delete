@@ -1,0 +1,60 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'appendAndDelete' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. STRING t
+#  3. INTEGER k
+#
+
+def appendAndDelete(s, t, k):
+    # Variable to store the similarity count between 's' & 't' while iterating through them
+    scount = 0
+    # Only the length of smallest string is considered while iterating
+    length = min(len(s),len(t))
+    # Logic to find the similarity count between 's' & 't'
+    for i in range(0,length) :
+        if s[i] == t[i] :
+            scount = scount + 1
+        else :
+            break
+    # Variable to store the number of deletions to be made    
+    dcount = max(len(s),len(t)) - scount
+    # Variable to store the number of append operations to be made  
+    acount = min(len(s),len(t)) - scount
+    # Summing the above to find the total steps required
+    count = dcount + acount
+    # Additional variable to pass all test cases        
+    total = len(s) + len(t)
+    # Logic to find whether 's' to 't' is possible or not
+    if count == k or s == t :
+        return 'Yes'
+    elif total <= ((2 * scount) + k) and total % 2 == k % 2 or total < k :
+        return 'Yes'
+    else :
+        return 'No'
+ 
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    t = input()
+
+    k = int(input().strip())
+
+    result = appendAndDelete(s, t, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
