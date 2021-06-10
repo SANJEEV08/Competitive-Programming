@@ -1,0 +1,80 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'almostSorted' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+# Function to check whether the modified array is sorted or not
+def checksort(dummy,arr) :
+    if dummy == sorted(arr) :
+        return True
+    else :
+        return False
+
+# Main solution function
+def almostSorted(arr):
+    # Randomly initialising 'start' & 'end'
+    start = - 1
+    end = -1 
+       
+    # Case 1 - To check whether the passed array is already sorted or not
+    # 'dummy1' is the duplicate of 'arr' chosen for ease of manipulation
+    dummy1 = arr.copy()
+    result = checksort(dummy1,arr)
+    if result == True :
+        print('yes')
+        return
+    
+    # Case 2 - To check whether 'swap' operation can get the array sorted
+    # 'dummy2' is the duplicate of 'arr' chosen for ease of manipulation
+    dummy2 = arr.copy()
+    # Logic to find the first occurence where sorting is not satisfied
+    for i in range(len(arr) - 1) :
+        if arr[i] > arr[i + 1] :
+            start = i
+            break
+    # Logic to find the last occurence where sorting is not satisfied    
+    for k in range(len(arr) - 1,0,-1) :
+        if arr[k] < arr[k - 1] :
+            end = k 
+            break
+    # Logic to swap 2 elements using 'temp' variables
+    temp1 = dummy2[start]
+    temp2 = dummy2[end]
+    dummy2[start] = temp2
+    dummy2[end] = temp1
+    result = checksort(dummy2,arr)
+    if result == True :
+        print('yes')
+        print(f'swap {start + 1} {end + 1}')
+        return
+    
+    # Case 3 - To check whether 'reverse' operation can get the array sorted
+    # 'dummy3' is the duplicate of 'arr' chosen for ease of manipulation
+    dummy3 = arr.copy()
+    dummy3[start:end + 1] = reversed(dummy3[start:end + 1])
+    result = checksort(dummy3,arr)
+    if result == True :
+        print('yes')
+        print(f'reverse {start + 1} {end + 1}')    
+        return
+    
+    # Case 4 - Where none of the above operations can get the array sorted
+    print('no')
+    return
+    
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    almostSorted(arr)
