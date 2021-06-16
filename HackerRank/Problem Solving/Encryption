@@ -1,0 +1,50 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import math
+#
+# Complete the 'encryption' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def encryption(s):
+    # Empty list to store the final result
+    result = []
+    # Function to remove spaces in the string if any
+    s = s.replace(' ','')
+    # Calculating length of the compressed string
+    length = len(s)
+    # Computing the number of rows 
+    r = math.floor(math.sqrt(length))
+    # Computing the number of rows 
+    c = math.ceil(math.sqrt(length))
+    # Logic to extract specific characters in the string columnwise and storing it in a temporary list
+    for i in range(c) :
+        dummy = []
+        j = 0 
+        while i + j < length :
+            dummy.append(s[i + j])
+            j = j + c
+            
+        result.append(''.join(dummy))
+    
+    return ' '.join(result)
+    
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = encryption(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
