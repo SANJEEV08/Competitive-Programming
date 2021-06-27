@@ -1,0 +1,10 @@
+def split_and_join(line):
+    # split(' ') will put the spaced elements in a list
+    splitted = line.split(' ')
+    # '-'.join() will combine all elements in the list with '-' as a delimiter in this case
+    joined = '-'.join(splitted)
+    return joined
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
