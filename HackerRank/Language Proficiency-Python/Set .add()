@@ -1,0 +1,14 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Defining the main function
+if __name__ == '__main__' :
+    # Empty list which will be converted to 'set' in a while
+    arr = []
+    # arr is now a 'set'
+    arr = set(arr)
+    # Getting the number of items as input
+    N = int(input())
+    # Adding elements to the 'set' using set.add()
+    for _ in range(N) :
+        arr.add(input())
+    # Printing the length of the set with has distinct elements    
+    print(len(arr))
