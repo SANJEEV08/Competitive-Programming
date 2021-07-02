@@ -1,0 +1,30 @@
+if __name__ == '__main__':
+    # Empty list to perform operations on the same
+    arr = []
+    # Variable that stores the number of commands
+    N = int(input())
+    # Looping to read each command
+    # First checking for 'keyword' & then building on top of them
+    for _ in range(N) :
+        dummy = []
+        dummy.append(input().split())
+        keyword = dummy[0][0]
+        if keyword == 'insert' :
+            i = int(dummy[0][1])
+            e = int(dummy[0][2])
+            arr.insert(i,e)
+        elif keyword == 'print' :
+            print(arr)
+        elif keyword == 'remove' :
+            e = int(dummy[0][1])
+            arr.remove(e)
+        elif keyword == 'append' :
+            e = int(dummy[0][1])
+            arr.append(e)
+        elif keyword == 'sort' :
+            arr.sort()
+        elif keyword == 'pop' :
+            arr.pop(len(arr) - 1)
+        else :
+            arr = arr[::-1]
+            
