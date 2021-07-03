@@ -1,0 +1,11 @@
+# Defining the main function
+if __name__ == '__main__':
+    # Variable to store the number of elements in the tuple
+    n = int(input())
+    # List which stores 'n' spaced integers using list comprehension
+    dummy = [int(i) for i in input().split()][:n]
+    # Converting list to tuple
+    t = tuple(dummy)
+    # Printing the result using 'hash()'
+    print(hash(t))
+   
