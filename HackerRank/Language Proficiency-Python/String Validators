@@ -1,0 +1,61 @@
+# Defining the main function
+if __name__ == '__main__':
+    # Variable to store the count of alpha numeric characters in the string
+    count0 = 0
+    # Variable to store the count of alphabet characters in the string
+    count1 = 0
+    # Variable to store the count of digit characters in the string
+    count2 = 0
+    # Variable to store the count of lower case characters in the string
+    count3 = 0
+    # Variable to store the count of upper case characters in the string
+    count4 = 0
+    
+    # Getting the input
+    s = input()
+    
+    # Logic to find the count of alpha numeric characters in the string
+    for i in s :
+        if i.isalnum() :
+            count0 = count0 + 1
+    if count0 == 0 :
+        print('False')
+    else :
+        print('True')
+    
+    # Logic to find the count of alphabet characters in the string
+    for i in s :
+        if i.isalpha() :
+            count1 = count1 + 1
+    if count1 == 0 :
+        print('False')
+    else :
+        print('True')
+    
+    # Logic to find the count of digit characters in the string
+    for i in s :
+        if i.isdigit() :
+            count2 = count2 + 1
+    if count2 == 0 :
+        print('False')
+    else :
+        print('True')
+    
+    # Logic to find the count of lower case characters in the string
+    for i in s :
+        if i.islower() :
+            count3 = count3 + 1
+    if count3 == 0 :
+        print('False')
+    else :
+        print('True')
+    
+    # Logic to find the count of upper case characters in the string
+    for i in s :
+        if i.isupper() :
+            count4 = count4 + 1
+    if count4 == 0 :
+        print('False')
+    else :
+        print('True')
+    
