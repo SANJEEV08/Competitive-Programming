@@ -1,0 +1,12 @@
+# Built-in function for finding the 'Cartesian Product'
+from itertools import product
+# Defining the main function
+if __name__ == '__main__' :
+    # List 'A' input
+    A = [int(i) for i in input().split()]
+    # List 'B' input
+    B = [int(i) for i in input().split()]
+    # Finding the 'Cartesian Product' & storing it in 'listed'
+    listed = product(A,B)
+    print(*listed)
+    
