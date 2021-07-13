@@ -1,0 +1,21 @@
+# Defining the main function
+if __name__ == '__main__' :
+    # Getting all inputs
+    m = int(input())
+    M = [int(i) for i in input().split()][:m]
+    n = int(input())
+    N = [int(i) for i in input().split()][:n]
+    # Converting 'list()' to 'set()' for performing the 'difference()' operation
+    M = set(M)
+    N = set(N)
+    # Logic to find the 'symmetric differences' with respect to both 'M' & 'N' sets
+    symmetricdiff = []
+    Mdiff = list(M.difference(N))
+    Ndiff = list(N.difference(M))
+    for i in Mdiff :
+        symmetricdiff.append(i)
+    for i in Ndiff :
+        symmetricdiff.append(i)
+    symmetricdiff = sorted(symmetricdiff)
+    for i in symmetricdiff :
+        print(i)
