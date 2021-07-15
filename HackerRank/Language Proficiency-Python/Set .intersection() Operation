@@ -1,0 +1,11 @@
+# Defining the main function
+if __name__ == '__main__' :
+    # Getting all the inputs
+    n = int(input())
+    N = [int(i) for i in input().split()][:n]
+    b = int(input())
+    B = [int(i) for i in input().split()][:b]
+    # Converting 'list()' to 'set()' for performing specific 'intersection()' operation
+    N = set(N)
+    B = set(B)
+    print(len(N.intersection(B)))
