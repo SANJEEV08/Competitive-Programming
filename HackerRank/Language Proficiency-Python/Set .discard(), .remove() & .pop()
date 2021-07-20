@@ -1,0 +1,30 @@
+# Defining the main function
+if __name__ == '__main__' :
+    # Getting all inputs
+    n = int(input())
+    s = [int(i) for i in input().split()][:n]
+    N = int(input())
+    i = 0
+    # Converting 'list()' to 'set()' for performing various operations
+    s = set(s)
+    # Logic to perform different operations
+    for _ in range(N) :
+        dummy = []
+        dummy.append(input().split())
+        keyword = dummy[0][0]
+        if keyword == 'remove' :
+            try :
+                x = dummy[0][1]
+                s.remove(int(x))
+            except KeyError :
+                i = i + 1
+        elif keyword == 'discard' :
+             x = dummy[0][1]
+             s.discard(int(x))
+        else :
+            try :
+                s.pop()
+            except KeyError :
+                i = i + 1
+                
+    print(sum(s))
