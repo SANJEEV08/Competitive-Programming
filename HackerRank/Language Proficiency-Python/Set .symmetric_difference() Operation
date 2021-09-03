@@ -1,0 +1,11 @@
+# Defining the main function
+if __name__ == '__main__' :
+    # Getting all the inputs
+    n = int(input())
+    N = [int(i) for i in input().split()][:n]
+    b = int(input())
+    B = [int(i) for i in input().split()][:b]
+    # Converting from 'list()' to 'set()' to perform the 'symmetric_difference()' operation on sets 'N' & 'B' and printing
+    N = set(N)
+    B = set(B)
+    print(len(N.symmetric_difference(B)))
