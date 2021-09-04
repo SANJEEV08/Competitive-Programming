@@ -1,0 +1,36 @@
+# Defining the main function
+if __name__ == '__main__' :
+    # Getting all the inputs
+    a = int(input())
+    A = [int(i) for i in input().split()][:a]
+    n = int(input())
+    # Logic to perform different operations on sets 'A' & 'N' and storing the 'update()' values in set 'A'
+    for _ in range(n) :
+        dummy = []
+        dummy.append(input().split())
+        keyword = dummy[0][0]
+        if keyword == 'intersection_update' :
+            N = [int(i) for i in input().split()][:int(dummy[0][1])]
+            A = set(A)
+            N = set(N)
+            A.intersection_update(N)
+        elif keyword == 'update' :
+            N = [int(i) for i in input().split()][:int(dummy[0][1])]
+            A = set(A)
+            N = set(N)
+            A.update(N)
+        elif keyword == 'symmetric_difference_update' :
+            N = [int(i) for i in input().split()][:int(dummy[0][1])]
+            A = set(A)
+            N = set(N)
+            A.symmetric_difference_update(N) 
+        elif keyword == 'difference_update' :
+            N = [int(i) for i in input().split()][:int(dummy[0][1])]
+            A = set(A)
+            N = set(N)
+            A.difference_update(N)
+            
+    print(sum(A))
+            
+            
+            
