@@ -1,0 +1,14 @@
+# Importing the necessary library for finding the permutations
+from itertools import permutations
+if __name__ == '__main__' :
+    # Getting the input and categorizing them as string 'S' & integer value 'k'
+    inputs = [i for i in input().split()][:2]
+    S = inputs[0]
+    k = int(inputs[1])
+    # Finding out the permutations of string 'S' with integer value 'k' & sorting them
+    permute = list(permutations(S,k))
+    permute = sorted(permute)
+    # Displaying the required output
+    for i in range(len(permute)) :
+        permute[i] = ''.join(permute[i])
+        print(permute[i])
