@@ -1,0 +1,14 @@
+# Importing the 'Regular Expression' module
+import re
+if __name__ == '__main__' :
+    # Getting the inputs
+    T = int(input())
+    for _ in range(T) :
+        S = input()
+        # 'try-except' condition to check for valid regex
+        try :
+            re.compile(S)
+            print('True')
+        except re.error :
+            print('False')
+            
