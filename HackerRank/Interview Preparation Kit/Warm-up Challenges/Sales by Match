@@ -1,0 +1,35 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    output = []
+    dic = dict(Counter(ar))
+    
+    for value in dic.values() :
+        if value >= 2 :
+            output.append(value)
+    
+    for i in range(len(output)) :
+        output[i] = int(output[i]/2)
+    
+    return sum(output)
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
