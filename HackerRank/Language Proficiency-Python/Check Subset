@@ -1,0 +1,16 @@
+if __name__ == '__main__' :
+    # Variable to store the total number of test cases
+    T = int(input())
+    # Getting the inputs and converting all 'list' to 'set'
+    for _ in range(T) :
+        A = int(input())
+        a = [int(i) for i in input().split()][:A]
+        a = set(a)
+        B = int(input())
+        b = [int(i) for i in input().split()][:B]
+        b = set(b)
+        # Logic to find whether 'A' is a subset of 'B' or not
+        if len(a.intersection(b)) == A :
+            print('True')
+        else :
+            print('False')
