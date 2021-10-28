@@ -1,0 +1,18 @@
+if __name__ == '__main__' :
+    # Variable to store the count instances where 'A' is the superset of 'other' sets
+    count = 0
+    # Getting the inputs
+    a = [int(i) for i in input().split()]
+    a = set(a)
+    n = int(input())
+    for _ in range(n) :
+        other = [int(i) for i in input().split()]
+        other = set(other)
+        # Logic to check whether 'A' is the superset of 'other' sets or not
+        if a.issuperset(other) == True :
+            count = count + 1
+    # Logic to find whether 'A' is the superset of all 'other' sets       
+    if count == n :
+        print('True')
+    else :
+        print('False')
