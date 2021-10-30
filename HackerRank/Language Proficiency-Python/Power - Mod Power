@@ -1,0 +1,8 @@
+if __name__ == '__main__' :
+    # Getting the inputs
+    a = int(input())
+    b = int(input())
+    m = int(input())
+    # Printing the necessary outputs according to the requirements
+    print(pow(a,b))
+    print(pow(a,b,m))
