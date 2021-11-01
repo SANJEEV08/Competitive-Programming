@@ -1,0 +1,9 @@
+# Importing required libraries
+import math
+import cmath
+if __name__ == '__main__' :
+    # Getting the inputs
+    compcordinate = complex(input())
+    # Printing the polar coordinates of the complex number
+    print(abs(compcordinate))
+    print(cmath.phase(compcordinate))
