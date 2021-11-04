@@ -1,0 +1,22 @@
+from collections import Counter
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        # Time Complexity - O(n)
+        # Variable to keep track of number of elements which have duplicate entries
+        count = 0
+        # Using 'Counter()' function to find number of appearences of each element
+        cntduplicate = Counter(nums)
+        # Converting to 'dict()' for easy iteration
+        cntduplicate = dict(cntduplicate)
+        # Iteratively checking the 'values' in 'dict.values()'
+        for value in cntduplicate.values() :
+            if value >= 2 :
+                count = count + 1
+        if count != 0 :
+            return True
+        else :
+            return False
+                
+            
+        
+        
