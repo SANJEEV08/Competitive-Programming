@@ -1,0 +1,16 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        # Variable to store the result in 2D
+        result = []
+        # First Pascal triangle value
+        trow = [1]
+        # Variable used for manipulation
+        y = [0]
+        # Looping for Logic using 'zip()'
+        for x in range(numRows):
+            result.append(trow)
+            trow = [l + r for l,r in zip(trow + y, y + trow)]
+    
+        return result[0:numRows]  
+            
+    
