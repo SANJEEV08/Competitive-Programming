@@ -1,0 +1,19 @@
+from collections import Counter
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # Finding frequency of elements in nums1 using 'Counter()'
+        cnums1 = Counter(nums1)
+        # Finding frequency of elements in nums2 using 'Counter()'
+        cnums2 = Counter(nums2)
+        # Using 'elements()' to preserve the number of times they appear in both the arrays
+        return (cnums1 & cnums2).elements()
+        
+            
+        
+    
+            
+                
+
+                
+
+        
