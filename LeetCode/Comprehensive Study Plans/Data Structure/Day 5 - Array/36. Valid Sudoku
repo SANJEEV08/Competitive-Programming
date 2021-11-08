@@ -1,0 +1,29 @@
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        # Hash Map for 'rows'
+        rows = collections.defaultdict(set)
+        # Hash Map for 'cols'
+        cols = collections.defaultdict(set)
+        # Hash Map for 'subsquares'
+        subsquares = collections.defaultdict(set)
+        # Looping through the 'board'
+        for r in range(9) :
+            for c in range(9) :
+                # Skip if an element is empty
+                if board[r][c] == '.' :
+                    continue
+                # Check if the element is already in the hash-maps of 'rows'/'cols'/'subsquares', if so return 'False'
+                if board[r][c] in rows[r] or board[r][c] in cols[c] or board[r][c] in subsquares[(r // 3, c // 3)] :
+                    return False
+                # Add elements to each of the hash-maps of 'rows','cols','subsquares' for future verification
+                rows[r].add(board[r][c])
+                cols[c].add(board[r][c])
+                subsquares[(r // 3, c // 3)].add(board[r][c])
+        
+        # Return 'True' if the 'board' is valid
+        return True
+
+                
+
+        
+        
