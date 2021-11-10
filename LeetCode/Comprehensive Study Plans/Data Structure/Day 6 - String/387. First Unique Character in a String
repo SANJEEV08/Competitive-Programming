@@ -1,0 +1,18 @@
+from collections import Counter
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        
+        # Worst Time Complexity - O(n)
+        
+        # List which stores the result of 'list(s)'
+        slist = list(s)
+        # Using 'Counter()' to find the frequency of each element in the string
+        sdict = dict(Counter(s))
+        # Looping through the list to find out the first unique character in the string
+        for element in slist :
+            if sdict.get(element) == 1 :
+                return slist.index(element)
+            
+        # Returning -1 if first unique character in the string does not exist
+        return -1
+        
