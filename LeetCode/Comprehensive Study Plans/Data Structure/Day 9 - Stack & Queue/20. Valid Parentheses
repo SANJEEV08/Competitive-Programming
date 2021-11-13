@@ -1,0 +1,31 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        # Time Complexity - O(n) - Have to go through every element in 's'
+        # Space Complexity - O(n) - Worst case is having 's' to be '(((' etc, the stack will also have the same
+        
+        # Hash-map for comparing last element of the 'stack' & the current element of 's' in iteration
+        close2open = {')' : '(', ']' : '[', '}' : '{'}
+        # Stack declaration - LIFO
+        stack = []
+        
+        # Looping through string 's'
+        for c in s :
+            # Condition to check if a closing bracket is found or not
+            if c in close2open :
+                # Case 1 - If the string 's' is '()'
+                if stack and stack[-1] == close2open[c] :
+                    stack.pop()
+                # Case 2 - If the string 's' is ')'
+                else :
+                    return False
+            # Case 3 - If the string 's' is '({['
+            else :
+                stack.append(c)
+        
+        # Returning 'False' if elements exist in 'stack', else 'True'
+        if stack :
+            return False
+        else :
+            return True
+        
