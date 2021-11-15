@@ -1,0 +1,33 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        # Time Complexity - O(N)
+        # Space Complexity - O(Number of distinct nodes)
+        
+        # Dummy LinkedList to keep track when iterating through the 'head' LinkedList & to manage edge cases
+        dummy = ListNode(next = head)
+        # Pointer that is responsible to remove duplicates & point only to distinct nodes
+        prev = dummy
+        # Empty List to store the values of distinct nodes
+        hashmap = []
+        # Pointer that iterates through the entire 'head' LinkedList
+        current = head
+        
+        # Looping till the 'head' LinkedList exists
+        # Comparing if the 'current.val' is already present in 'hashmap' or not & then manipulating the pointers accordingly
+        while current :
+            if current.val not in hashmap :
+                hashmap.append(current.val)
+                prev = current
+            else :
+                prev.next = current.next
+                
+            current = current.next
+            
+        return dummy.next
+        
