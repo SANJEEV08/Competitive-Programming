@@ -1,0 +1,31 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        
+        # Time Complexity - O(N) - Iterating throughout the LinkedList
+        # Space Complexity - O(1) - No additional variables created only pointers used
+        
+        
+        # Dummy ListNode to manage edge cases, that is if you want to delete the first node in the LinkedList, initialized before the head of the input LinkedList
+        dummy = ListNode(next = head)
+        # Pointer that points before the head of the input LinkedList
+        prev = dummy
+        # Pointer that iterates throughout the LinkedList
+        current = head
+        
+        # Looping till LinkedList exists & manipulating the pointers
+        while current :
+            if current.val == val :
+                prev.next = current.next 
+            else :
+                prev = current
+                
+            current = current.next
+        
+        
+        return dummy.next
+        
