@@ -1,0 +1,50 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        
+        # Solution 1 - Recursion
+        
+        # Inorder Traversal sequence - left --> root --> right
+        
+        # Recursively calling the function & joining lists appropriately
+        if root :
+            return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        else :
+            return []
+
+---------------------------------------------------------------------------------------------------------------
+  
+  def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        
+        # Solution 2 - Using Iteration -
+        
+        # Time Complexity - O(N)
+        # Space Complexity - O(N)
+        
+        # Using the idea of 'stack' --> LIFO
+        
+        # List which stores elements in the form - right --> root --> left, because a stack is LIFO
+        stack = []
+        # Empty list to store the result of operation
+        result = []
+        # Return [] if the binary tree is empty
+        if root is None :
+            return []
+        # Appending elements to 'result' by LIFO 'stack'
+        else :
+            while root is not None or stack != [] :
+                while root is not None : 
+                    stack.append(root)
+                    root = root.left
+                
+                root = stack.pop()
+                result.append(root.val)
+                root = root.right
+                
+            return result
+                    
