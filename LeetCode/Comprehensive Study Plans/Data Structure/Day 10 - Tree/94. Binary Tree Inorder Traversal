@@ -19,7 +19,8 @@ class Solution:
 
 ---------------------------------------------------------------------------------------------------------------
   
-  def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         
         # Solution 2 - Using Iteration -
         
@@ -47,4 +48,3 @@ class Solution:
                 root = root.right
                 
             return result
-                    
